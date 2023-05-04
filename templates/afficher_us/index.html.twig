@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AfficherUsController!{% endblock %}
+
+{% block body %}
+{% for i in au %}
+
+
+
+{% set data = { 'email': i.email , 'username': i.username ,'image ' : i.image 
+,'numero': i.numero , 'adresse': i.adresse , 'password': i.password } %}
+
+{{ data | json_encode(constant('JSON_PRETTY_PRINT')) }}
+
+{% endfor %}
+{% endblock %}

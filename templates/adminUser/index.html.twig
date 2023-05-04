@@ -1,0 +1,51 @@
+{% extends 'backUser.html.twig' %}
+
+{% block title %}Hello AdminController!{% endblock %}
+
+{% block body %}
+{{form_start(form,{'attr': {'validate':'validate'} }) }}
+
+    <div class="form-outline mb-4">
+   {{ form_row(form.username, { 'label':'Nom d\'utilisateur  ', 'attr': {'placeholder':'Nom d\'utilisateur...' } }) }}
+  
+   
+
+    </div>
+   
+    
+    <div class="form-group">
+     <button type="submit" class="btn btn-success">chercher</button>
+    </div>
+ 
+{{ form_end(form) }}
+<table  class="table table-striped">
+<tr >
+<th>Email </th>
+<th>username </th>
+<th>image</th>
+<th>numero</th>
+<th>Adresse</th>
+<th>mot de passe </th>
+<th>Consulter</th>
+<th>bloquer</th>
+
+</tr>
+
+{% for i in em %}
+<tr>
+<td> {{i.email}} </td>
+<td> {{i.username}} </td>
+<td> {{i.image}} </td>
+<td> {{i.numero}} </td>
+<td> {{i.adresse }} </td>
+<td> {{i.password }} </td>
+
+<td> <a type="submit" class="btn btn-success" href="/Admin/debloquer/{{i.id}}">Débloquer</a></td>
+<td> <a type="submit" class="btn btn-danger" href="/Admin/bloquer/{{i.id}}">Bloquer</a></td>
+<td><a type="submit" class="btn btn-danger" href="/Admin/supprimer/{{i.id}}">Supprimer</a></td>
+</tr>
+{% endfor %}
+
+
+</table>
+{% endblock %}
