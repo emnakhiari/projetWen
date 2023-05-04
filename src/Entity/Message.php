@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Entity\User;
 
 /**
  * Message
@@ -74,13 +75,13 @@ class Message
 
         return $this;
     }
-
-    public function getIdUtilisateur(): ?Utilisateur
+/*
+    public function getIdUtilisateur(): ?int
     {
         return $this->idUtilisateur;
     }
-
-    public function setIdUtilisateur(?Utilisateur $idUtilisateur): self
+*/
+    public function setIdUtilisateur(?User $idUtilisateur): self
     {
         $this->idUtilisateur = $idUtilisateur;
 
